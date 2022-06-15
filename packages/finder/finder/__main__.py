@@ -8,4 +8,12 @@ def main(args):
     language = translator.detect(sentence, dest=destination)
     translated = translator.translate(sentence, dest=destination)
     body = "Language detected: {0} | Translation: {1}".format(language.lang, translated.text)
-    return {"body":  body}
+    print(body)
+
+    return {
+        'body': {
+            'response_type': 'in_channel',
+            'text': body
+        }
+    }
+
